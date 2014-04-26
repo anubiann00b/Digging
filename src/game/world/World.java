@@ -3,10 +3,18 @@ package game.world;
 import org.newdawn.slick.Graphics;
 
 public class World {
-    
+        
     private Tile[][] tiles;
     
-    public Tile getTile(int x, int y) { return tiles[x][y]; }
+    private Tile defaultAir = new Tile(TileType.TILE_AIR);
+    
+    public Tile getTile(int x, int y) {
+        
+        if (x<0 || y<0 || x>tiles.length || y>tiles[0].length)
+            return defaultAir;
+        
+        return tiles[x][y];
+    }
     
     public World(int width, int height) {
         tiles = new Tile[width][height];

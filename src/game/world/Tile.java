@@ -6,6 +6,8 @@ public class Tile {
     
     private TileType type;
     
+    public TileType getType() { return type; }
+    
     public Tile(TileType type) {
         this.type = type;
     }

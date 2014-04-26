@@ -28,7 +28,7 @@ public class StatePlaying extends BasicGameState {
     
     private Player player;
     
-    private World world;
+    public static World world;
     
     public StatePlaying(int id) {
         this.id = id;
@@ -39,10 +39,10 @@ public class StatePlaying extends BasicGameState {
     @Override
     public void init(GameContainer container, StateBasedGame game) throws SlickException {
         background = ImageLibrary.BG.getImage();
+                
+        world = new World(WORLD_SIZE_X/64,WORLD_SIZE_Y/64);
         
         player = new Player(container.getInput());
-        
-        world = new World(WORLD_SIZE_X/64,WORLD_SIZE_Y/64);
     }
     
     @Override   

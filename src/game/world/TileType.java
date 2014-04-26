@@ -20,4 +20,8 @@ public enum TileType {
             return;
         sprite.draw(x,y);
     }
+
+    public boolean isSolid() {
+        return !this.equals(TILE_AIR);
+    }
 }
