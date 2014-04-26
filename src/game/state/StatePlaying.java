@@ -2,6 +2,7 @@ package game.state;
 
 import game.Game;
 import game.player.Player;
+import game.util.MathHelper;
 import game.util.resource.ImageLibrary;
 import game.world.World;
 import org.newdawn.slick.GameContainer;
@@ -15,7 +16,7 @@ public class StatePlaying extends BasicGameState {
     
     public static final int VIEW_SIZE_X = Game.VIEW_SIZE_X;
     public static final int VIEW_SIZE_Y = Game.VIEW_SIZE_Y;
-    public static final int WORLD_SIZE_X = VIEW_SIZE_X*20;
+    public static final int WORLD_SIZE_X = VIEW_SIZE_X*5;
     public static final int WORLD_SIZE_Y = VIEW_SIZE_Y*20;
     
     private final int id;
@@ -41,7 +42,7 @@ public class StatePlaying extends BasicGameState {
         
         player = new Player(container.getInput());
         
-        world = new World(10);
+        world = new World(WORLD_SIZE_X/64,WORLD_SIZE_Y/64);
     }
     
     @Override   
@@ -61,8 +62,8 @@ public class StatePlaying extends BasicGameState {
     }
     
     private void updateViewPort() {
-        camX = (int)(player.getX()-VIEW_SIZE_X/2);
-        camY = (int)(player.getY()-VIEW_SIZE_Y/2);
+        camX = (int) MathHelper.median(0,player.getX()-VIEW_SIZE_X/2,WORLD_SIZE_X-VIEW_SIZE_X);
+        camY = (int) MathHelper.median(0,player.getY()-VIEW_SIZE_Y/2,WORLD_SIZE_Y-VIEW_SIZE_Y);
     }
     
     @Override
