@@ -38,11 +38,14 @@ public class Player {
         
         if (input.isKeyDown(Input.KEY_W)) {
             dy--;
-        } else if (input.isKeyDown(Input.KEY_S)) {
+        }
+        if (input.isKeyDown(Input.KEY_S)) {
             dy++;
-        } else if (input.isKeyDown(Input.KEY_A)) {
+        }
+        if (input.isKeyDown(Input.KEY_A)) {
             dx--;
-        } else if (input.isKeyDown(Input.KEY_D)) {
+        }
+        if (input.isKeyDown(Input.KEY_D)) {
             dx++;
         }
         
