@@ -46,7 +46,7 @@ public class Player {
             dx++;
         }
         
-        x+=dx*delta/10.0;
-        y+=dy*delta/10.0;
+        x+=dx*delta;//10.0;
+        y+=dy*delta;//10.0;
     }
 }

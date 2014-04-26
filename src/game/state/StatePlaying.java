@@ -3,6 +3,7 @@ package game.state;
 import game.Game;
 import game.player.Player;
 import game.util.resource.ImageLibrary;
+import game.world.World;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -26,6 +27,8 @@ public class StatePlaying extends BasicGameState {
     
     private Player player;
     
+    private World world;
+    
     public StatePlaying(int id) {
         this.id = id;
         this.camX = 0;
@@ -37,6 +40,8 @@ public class StatePlaying extends BasicGameState {
         background = ImageLibrary.BG.getImage();
         
         player = new Player(container.getInput());
+        
+        world = new World(10);
     }
     
     @Override   
@@ -50,8 +55,8 @@ public class StatePlaying extends BasicGameState {
         
         updateViewPort();
         
-        //g.translate(-camX,-camY);
-        
+        g.translate(-camX,-camY);
+        world.render(g);
         player.render(g);
     }
     
