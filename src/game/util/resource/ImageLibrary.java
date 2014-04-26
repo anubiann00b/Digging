@@ -5,7 +5,8 @@ import org.newdawn.slick.SlickException;
 
 public enum ImageLibrary {
     
-    BG("bg/bg.png");
+    BG("bg.png"),
+    PLAYER("player.png");
     
     private String filepath;
     private Image image;
